@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/* Colores:
+
+*/
+/* Imágenes:
+logo: https://www.last.fm/static/images/logo_static_mob.0798d7258e3d.png
+rock: https://lastfm.freetls.fastly.net/i/u/avatar300s/366962d5733a4aee8bee4a136c239d47.jpg
+hip-hop: https://lastfm.freetls.fastly.net/i/u/avatar300s/51810a59cb17449bb2d6b8b62d63ce78.jpg
+indie:https://lastfm.freetls.fastly.net/i/u/avatar300s/c825233e09af4641a5ce7b6ece883aae.jpg
+jazz:https://lastfm.freetls.fastly.net/i/u/avatar300s/c0a9af93c8c843afb43cd6dc24b0bbf3.jpg
+reggae: https://lastfm.freetls.fastly.net/i/u/avatar300s/94428d295a60403e9327cbfb86e2fbf6.jpg
+
+/* Filtros: 
+
+rock:   sepia(90%);
+hip-hop:contrast(200%);
+indie:  grayscale(50%);
+jazz:   hue-rotate(90deg);
+reggae: saturate(10%);
+
+*/
+/* Fuente:
+    font-family:Open Sans,Lucida Grande,Helvetica Neue,Helvetica,Arial,Sans-serif;
+
+*/
+/* Utiliza  la propiedad counter-increment: step-counter; para pintar el número de la canción
+ */
+body {
+  font-family: Open Sans, Lucida Grande, Helvetica Neue, Helvetica, Arial, Sans-serif;
+  margin: 0px;
+  padding: 0px;
+  min-width: 700px;
+  background-color: lightcoral;
+}
+body header {
+  width: 100%;
+  background-color: lightgreen;
+}
+body header nav {
+  background-color: yellow;
+}
+body header nav div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  background-color: purple;
+}
+body header nav div#logo {
+  padding-bottom: 10px;
+  background-color: #222;
+}
+body header nav div#styles div {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+body header nav div#styles div#rock {
+  filter: sepia(90%);
+}
+body header nav div#styles div#hiphop {
+  filter: contrast(200%);
+}
+body header nav div#styles div#indie {
+  filter: grayscale(50%);
+}
+body header nav div#styles div#jazz {
+  filter: hue-rotate(90deg);
+}
+body header nav div#styles div#reggae {
+  filter: saturate(10%);
+}
+body header nav div#lists {
+  padding-bottom: 10px;
+}
+body header nav div .btn {
+  border: none;
+  background-color: transparent;
+}
+body header nav div .btn-image {
+  color: white;
+}
+body header nav div .btn-image:hover {
+  text-decoration: underline;
+}
+body header nav div .btn-nav:active {
+  color: red;
+}
+body main {
+  padding-left: 10px;
+}
+body main ul {
+  list-style: none;
+  width: 100%;
+  padding: 0%;
+}
+body main ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+body main ul li:nth-of-type(odd) {
+  background-color: lightgray;
+}
+body main ul li:nth-of-type(even) {
+  background-color: white;
+}
+body main ul li div {
+  display: flex;
+  align-items: center;
+  background-color: brown;
+  height: 100%;
+  width: 40%;
+}
+body main ul li div:first-child {
+  width: 400px;
+  justify-content: space-between;
+}
+body main ul li div:first-child div:first-child {
+  display: flex;
+  justify-content: flex-start;
+  background-color: red;
+  width: auto;
+}
+body main ul li div:first-child div:first-child p {
+  margin-left: 5px;
+}
+body main ul li div:first-child div:last-child {
+  background-color: green;
+  width: auto;
+}
+body main ul li div:last-child {
+  padding-right: 10px;
+  width: 200px;
+  justify-content: flex-end;
+}
+
+/*# sourceMappingURL=style.css.map */
