@@ -10,34 +10,19 @@ indie:https://lastfm.freetls.fastly.net/i/u/avatar300s/c825233e09af4641a5ce7b6ec
 jazz:https://lastfm.freetls.fastly.net/i/u/avatar300s/c0a9af93c8c843afb43cd6dc24b0bbf3.jpg
 reggae: https://lastfm.freetls.fastly.net/i/u/avatar300s/94428d295a60403e9327cbfb86e2fbf6.jpg
 
-/* Filtros: 
 
-rock:   sepia(90%);
-hip-hop:contrast(200%);
-indie:  grayscale(50%);
-jazz:   hue-rotate(90deg);
-reggae: saturate(10%);
-
-*/
-/* Fuente:
-    font-family:Open Sans,Lucida Grande,Helvetica Neue,Helvetica,Arial,Sans-serif;
-
-*/
 /* Utiliza  la propiedad counter-increment: step-counter; para pintar el número de la canción
  */
 body {
+  counter-reset: song-counter;
   font-family: Open Sans, Lucida Grande, Helvetica Neue, Helvetica, Arial, Sans-serif;
   margin: 0px;
   padding: 0px;
   min-width: 700px;
-  background-color: lightcoral;
+  background-color: #fff;
 }
 body header {
   width: 100%;
-  background-color: lightgreen;
-}
-body header nav {
-  background-color: yellow;
 }
 body header nav div {
   display: flex;
@@ -46,7 +31,6 @@ body header nav div {
   width: 100%;
   padding-top: 10px;
   margin-bottom: 10px;
-  background-color: purple;
 }
 body header nav div#logo {
   padding-bottom: 10px;
@@ -55,40 +39,51 @@ body header nav div#logo {
 body header nav div#styles div {
   width: 100px;
   height: 100px;
-  background-color: blue;
   margin-right: 15px;
   margin-left: 15px;
+  background-size: cover;
 }
 body header nav div#styles div#rock {
+  background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/366962d5733a4aee8bee4a136c239d47.jpg");
   filter: sepia(90%);
 }
 body header nav div#styles div#hiphop {
+  background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/51810a59cb17449bb2d6b8b62d63ce78.jpg");
   filter: contrast(200%);
 }
 body header nav div#styles div#indie {
+  background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/c825233e09af4641a5ce7b6ece883aae.jpg");
   filter: grayscale(50%);
 }
 body header nav div#styles div#jazz {
+  background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/c0a9af93c8c843afb43cd6dc24b0bbf3.jpg");
   filter: hue-rotate(90deg);
 }
 body header nav div#styles div#reggae {
+  background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/94428d295a60403e9327cbfb86e2fbf6.jpg");
   filter: saturate(10%);
 }
 body header nav div#lists {
   padding-bottom: 10px;
 }
 body header nav div .btn {
+  font-size: 16px;
+  font-weight: bold;
   border: none;
   background-color: transparent;
 }
 body header nav div .btn-image {
-  color: white;
+  color: #fff;
 }
 body header nav div .btn-image:hover {
   text-decoration: underline;
 }
-body header nav div .btn-nav:active {
-  color: red;
+body header nav div .btn-nav {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+body header nav div .btn-nav:focus {
+  color: #B90000;
 }
 body main {
   padding-left: 10px;
@@ -102,43 +97,55 @@ body main ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: -10px;
+  padding-left: 10px;
   width: 100%;
   height: 50px;
 }
 body main ul li:nth-of-type(odd) {
-  background-color: lightgray;
+  background-color: #f2f2f2;
 }
 body main ul li:nth-of-type(even) {
-  background-color: white;
+  background-color: transparent;
 }
 body main ul li div {
   display: flex;
   align-items: center;
-  background-color: brown;
   height: 100%;
   width: 40%;
 }
 body main ul li div:first-child {
-  width: 400px;
-  justify-content: space-between;
+  width: 500px;
+  justify-content: flex-start;
 }
 body main ul li div:first-child div:first-child {
   display: flex;
   justify-content: flex-start;
-  background-color: red;
   width: auto;
 }
 body main ul li div:first-child div:first-child p {
   margin-left: 5px;
 }
 body main ul li div:first-child div:last-child {
-  background-color: green;
   width: auto;
 }
 body main ul li div:last-child {
   padding-right: 10px;
   width: 200px;
   justify-content: flex-end;
+}
+body main ul li div a.groupName:before {
+  padding-left: 5px;
+  counter-increment: song-counter;
+  content: counter(song-counter) ". ";
+}
+body main ul li div a, body main ul li div a:visited {
+  margin-right: 30px;
+  text-decoration: inherit;
+  color: inherit;
+}
+body main ul li div p {
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

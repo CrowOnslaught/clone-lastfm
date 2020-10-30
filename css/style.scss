@@ -1,21 +1,20 @@
 @import "./variables";
 body
 {
+    counter-reset: song-counter;
     font-family:Open Sans,Lucida Grande,Helvetica Neue,Helvetica,Arial,Sans-serif;
 
     margin: 0px;
     padding:0px;
     min-width: 700px;
 
-    background-color: lightcoral;
+    background-color: $color-background;
 
     header
     {
         width: 100%;
-        background-color: lightgreen;
         nav
         {
-            background-color: yellow;
             div
             {
                 display: flex;
@@ -26,7 +25,6 @@ body
                 padding-top: 10px;
                 margin-bottom: 10px;
                 
-                background-color: purple;
             
                 &#logo
                 {
@@ -40,28 +38,33 @@ body
                     {
                         width: 100px;
                         height: 100px;
-                        background-color: blue;
                         margin-right: 15px;
                         margin-left: 15px;
+                        background-size: cover;
 
                         &#rock
                         {
+                            background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/366962d5733a4aee8bee4a136c239d47.jpg");
                             filter: sepia(90%);
                         }
                         &#hiphop
                         {
+                            background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/51810a59cb17449bb2d6b8b62d63ce78.jpg");
                             filter: contrast(200%);
                         }
                         &#indie
                         {
+                            background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/c825233e09af4641a5ce7b6ece883aae.jpg");
                             filter: grayscale(50%);
                         }
                         &#jazz
                         {
+                            background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/c0a9af93c8c843afb43cd6dc24b0bbf3.jpg");
                             filter:hue-rotate(90deg);
                         }
                         &#reggae
                         {
+                            background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/94428d295a60403e9327cbfb86e2fbf6.jpg");
                             filter: saturate(10%);
                         }
                     }
@@ -73,12 +76,14 @@ body
     
                 .btn
                 {
+                    font-size: 16px;
+                    font-weight: bold;
                     border: none;
                     background-color: transparent;
     
                     &-image
                     {
-                        color:white;
+                        color:$color-background;
                         &:hover
                         {
                             text-decoration: underline;
@@ -86,9 +91,11 @@ body
                     }
                     &-nav
                     {
-                        &:active
+                        margin-left: 5px;
+                        margin-right: 5px;
+                        &:focus
                         {
-                            color: red;
+                            color: $color-focus-menu;
                         }
                     }
                 }
@@ -109,37 +116,36 @@ body
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-    
+                margin-left: -10px;
+                padding-left: 10px;
                 width: 100%;
                 height: 50px;
     
                 &:nth-of-type(odd)
                 {
-                    background-color: lightgray;
+                    background-color: $color-list-odd;
                 }
                 &:nth-of-type(even)
                 {
-                    background-color: white;
+                    background-color: transparent;
                 }
                 div
                 {
                     display: flex;
                     align-items: center;
     
-                    background-color: brown;
                     height: 100%;
                     width: 40%;
     
                     &:first-child
                     {
-                        width: 400px;
-                        justify-content: space-between;
+                        width: 500px;
+                        justify-content: flex-start;
                     
                         div:first-child
                         {
                             display: flex;
                             justify-content: flex-start;
-                            background-color: red;
                             width: auto;
                             p
                             {
@@ -148,7 +154,6 @@ body
                         }
                         div:last-child
                         {
-                            background-color: green;
                             width: auto;
                         }
                     }
@@ -158,8 +163,23 @@ body
                         width: 200px;
                         justify-content: flex-end;
                     }
-    
-    
+                    a.groupName:before
+                    {
+                        padding-left: 5px;
+                        counter-increment: song-counter;
+                        content: counter(song-counter) ". ";
+                    }
+
+                    a, a:visited
+                    {
+                        margin-right: 30px;
+                        text-decoration: inherit;
+                        color: inherit;
+                    }
+                    p
+                    {
+                        font-size: 12px;
+                    }
                 }
             }
         }
