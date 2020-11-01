@@ -205,7 +205,7 @@ const init = ()=>
 
 function readJsonFile()
 {
-    let l_productDATA = "../data/music.json";
+    let l_productDATA = "https://raw.githubusercontent.com/JaumeGarciaBit/clone-lastfm/master/data/music.json";
     let l_promise = fetch(l_productDATA);
     l_promise.then(response => response.json())
             .then(data =>
