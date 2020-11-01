@@ -13,6 +13,45 @@ reggae: https://lastfm.freetls.fastly.net/i/u/avatar300s/94428d295a60403e9327cbf
 
 /* Utiliza  la propiedad counter-increment: step-counter; para pintar el número de la canción
  */
+button.launch {
+  background-color: #F9A300;
+  border: none;
+  height: 40px;
+  padding: 5px 15px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+button.launch:hover {
+  cursor: pointer;
+  background-color: #FABD44;
+}
+
+button.change {
+  background-color: #F88F00;
+  border: none;
+  height: 40px;
+  padding: 5px 15px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+button.change:hover {
+  cursor: pointer;
+  background-color: #F89900;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
 body {
   counter-reset: song-counter;
   font-family: Open Sans, Lucida Grande, Helvetica Neue, Helvetica, Arial, Sans-serif;
@@ -71,6 +110,7 @@ body header nav div .btn {
   font-weight: bold;
   border: none;
   background-color: transparent;
+  outline: none;
 }
 body header nav div .btn-image {
   color: #fff;
