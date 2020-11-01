@@ -61,40 +61,121 @@ class Song
 
 }
 
-function loadSongs ()
+function loadSongs (array, amount = 0)//amount=0 means array.length
 {
     m_listContainer.innerHTML ="";
-    for(let song of m_songsList)
+    
+    for(let i=0; i< (amount>0?amount:array.length); i++)
     {
-        let l_artist    = song.artist.name;
-        let l_url       = song.artist.url;
-        let l_name      = song.name;
-        let l_listeners = song.listeners;
+        let l_song = array[i];
 
-        m_listContainer.innerHTML += song.getNewElement(l_artist, l_url, l_name, l_listeners);
+        let l_artist    = l_song.artist.name;
+        let l_url       = l_song.artist.url;
+        let l_name      = l_song.name;
+        let l_listeners = l_song.listeners;
+
+        m_listContainer.innerHTML += l_song.getNewElement(l_artist, l_url, l_name, l_listeners);
     }
 }
 
-const loadOverview = () =>{
+const loadOverview = () =>
+{
+    m_titleContainer.innerHTML = "Overview";
+
+    loadSongs(m_songsList)
 }
 
 const loadTenListened = ()=>
 {
-    let l_array = m_songsList;
-    l_array.sort(function (a, b) {
-        if (a.listeners < b.listeners)
-            return 1;
-        else if (a.listeners > b.listeners)
-            return -1;
-        else
-            return 0;
+    m_titleContainer.innerHTML = "Top 10 Listened";
+
+    let l_array = [...m_songsList];
+    l_array.sort(function (a, b) 
+    {
+        return (b.listeners-a.listeners)
     });
 
-    console.log(l_array);
+    loadSongs(l_array,10);
 }
 
-const loadBiggest = (e)=>{
+const loadBiggest = (e)=>
+{
+    m_titleContainer.innerHTML = "The Biggest";
 
+    let l_dictionary = [];
+    for(let song of m_songsList)
+    {
+        let l_index = -1;
+        for(let i = 0; i < l_dictionary.length; i++)
+        {
+            if(l_dictionary[i].artist == song.artist.name)
+            {
+                l_index = i;
+                break;
+            }
+        }
+
+        if(l_index >=0)
+        {
+            l_dictionary[l_index].listeners += song.listeners;
+        }
+        else
+        {
+            let l_object =
+            {
+                artist: song.artist.name,
+                listeners: song.listeners,
+            };
+            l_dictionary.push(l_object);
+        }
+    }
+    l_dictionary.sort(function (a, b) 
+    {
+        return (b.listeners-a.listeners)
+    });
+
+    let l_result = [];
+    for(let song of m_songsList)
+    {
+        if(song.artist.name == l_dictionary[0].artist)
+            l_result.push(song);
+    }
+    loadSongs(l_result);
+}
+
+const loadGenre = (genre) =>
+{
+    let l_array = [];
+    let l_genre;
+
+    switch (genre)
+    {
+        case 0:
+            l_genre = "rock";
+            break;
+        case 1:
+            l_genre = "hip-hop";
+
+            break;
+        case 2:
+            l_genre = "indie";
+            break;
+        case 3:
+            l_genre = "jazz";
+            break;
+        case 4: 
+            l_genre = "reggae";
+            break;
+    }
+    m_titleContainer.innerHTML = l_genre;
+
+    for(let song of m_songsList)
+    {
+        if(song.genre == l_genre)
+            l_array.push(song);
+    }
+    
+    loadSongs(l_array);
 }
 
 const init = ()=>
@@ -120,8 +201,6 @@ const init = ()=>
 
     m_titleContainer.innerHTML = "Overview";
     readJsonFile();
-    
-
 }
 
 function readJsonFile()
@@ -136,7 +215,7 @@ function readJsonFile()
                         let l_song = new Song(e);
                         m_songsList.push(l_song);
                     })
-                    loadSongs();
+                    loadSongs(m_songsList);
             })
 }
 

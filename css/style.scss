@@ -3,13 +3,13 @@ body
 {
     counter-reset: song-counter;
     font-family:Open Sans,Lucida Grande,Helvetica Neue,Helvetica,Arial,Sans-serif;
-
+    
     margin: 0px;
     padding:0px;
     min-width: 700px;
-
+    
     background-color: $color-background;
-
+    
     header
     {
         width: 100%;
@@ -21,16 +21,16 @@ body
                 justify-content: center;
                 align-items: center;
                 width: 100%;
-    
+                
                 padding-top: 10px;
                 margin-bottom: 10px;
                 
-            
+                
                 &#logo
                 {
                     padding-bottom: 10px;
                     background-color: $color-primary;
-    
+                    
                 }
                 &#styles
                 {
@@ -41,7 +41,7 @@ body
                         margin-right: 15px;
                         margin-left: 15px;
                         background-size: cover;
-
+                        
                         &#rock
                         {
                             background-image: url("https://lastfm.freetls.fastly.net/i/u/avatar300s/366962d5733a4aee8bee4a136c239d47.jpg");
@@ -73,14 +73,14 @@ body
                 {
                     padding-bottom: 10px;
                 }
-    
+                
                 .btn
                 {
                     font-size: 16px;
                     font-weight: bold;
                     border: none;
                     background-color: transparent;
-    
+                    
                     &-image
                     {
                         color:$color-background;
@@ -119,29 +119,26 @@ body
                 margin-left: -10px;
                 padding-left: 10px;
                 width: 100%;
-                height: 50px;
-    
+                height: 40px;
+                
                 &:nth-of-type(odd)
                 {
                     background-color: $color-list-odd;
                 }
-                &:nth-of-type(even)
-                {
-                    background-color: transparent;
-                }
+                
                 div
                 {
                     display: flex;
                     align-items: center;
-    
+                    
                     height: 100%;
                     width: 40%;
-    
+                    
                     &:first-child
                     {
                         width: 500px;
                         justify-content: flex-start;
-                    
+                        
                         div:first-child
                         {
                             display: flex;
